@@ -25,6 +25,10 @@ async function register ({
     handler: setSortParams,
   })
   registerHook({
+    target: 'filter:api.overviews.videos.list.params',
+    handler: setSortParams,
+  })
+  registerHook({
     target: 'filter:api.search.videos.local.list.params',
     handler: setSortParams,
   })
@@ -52,6 +56,10 @@ async function register ({
   })
   registerHook({
     target: 'filter:api.user.me.videos.list.result',
+    handler: mapList(setPublishedAt),
+  })
+  registerHook({
+    target: 'filter:api.overviews.videos.list.result',
     handler: mapList(setPublishedAt),
   })
   registerHook({
